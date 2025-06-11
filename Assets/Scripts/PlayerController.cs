@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
     public float dashRange = 1f;
 
     public GameObject crosshair;
-    public GameObject fireball;
     public Camera PlayerCamera;
     private Rigidbody2D playerRb;
     public InputActionAsset InputActions;
@@ -32,7 +31,7 @@ public class PlayerController : MonoBehaviour
     public Vector2 playerAimVector;
     public Vector2 playerMoveVector;
     public GridScript currentGrid;
-    public int playerElevation;
+    public Animator animatorVar;
 
     public void OnEnable()
     {
@@ -60,15 +59,7 @@ public class PlayerController : MonoBehaviour
     }
 
     public void EnableTheFuckingControls() {
-        InputActions.FindActionMap("Normal Mode").Enable();
-                playerMoveAction = InputSystem.actions.FindAction("Move");
-        playerAimAction = InputSystem.actions.FindAction("Aim");
-        playerDashAction = InputSystem.actions.FindAction("Dash");
-        playerJumpAction = InputSystem.actions.FindAction("Jump");
-        playerCastAction = InputSystem.actions.FindAction("Cast");
-
-        crosshair.GetComponent<SpriteRenderer>().enabled = false;
-        playerRb = GetComponent<Rigidbody2D>();
+        Awake();
     }
 
     // public void OnAim(InputAction.CallbackContext context)
@@ -119,27 +110,38 @@ public class PlayerController : MonoBehaviour
         //     1);
     }
 
-    
+    public SpriteRenderer playerSprite;
+    public GameObject conduit;
+    public ManaController manaController;
     void Update()
     {
+        RotatePlayer(playerMoveVector.x, playerMoveVector.y);
+
         gameObject.GetComponent<SpriteRenderer>().sortingOrder = (int)(gameObject.transform.position.z + 1);
+        playerSprite.sortingOrder = (int)(gameObject.transform.position.z + 1);
+        crosshair.GetComponent<SpriteRenderer>().sortingOrder = (int)(gameObject.transform.position.z + 1);
+        conduit.GetComponent<SpriteRenderer>().sortingOrder = (int)(gameObject.transform.position.z + 1);
 
         InputActions.FindActionMap("Normal Mode").Enable();
-        playerMoveVector = playerMoveAction.ReadValue<Vector2>();        
+        playerMoveVector = playerMoveAction.ReadValue<Vector2>();
         playerAimVector = playerAimAction.ReadValue<Vector2>();
 
         if (playerDashAction.WasPressedThisFrame())
-        {PlayerDashFunc();}
-        
+        { PlayerDashFunc(); }
+
         if (playerJumpAction.WasPressedThisFrame())
-        {PlayerJumpFunc();}
+        { PlayerJumpFunc(); }
 
         if (playerCastAction.WasPressedThisFrame())
-        {CastSpell();}
+        { CastSpell(); }
 
         if (lightAttackAction.WasPressedThisFrame())
-        {PlayerAttackFunc();}
-    
+        { PlayerAttackFunc("Light Attack"); }
+        else if (mediumAttackAction.WasPressedThisFrame())
+        { PlayerAttackFunc("Medium Attack"); }
+        else if (heavyAttackAction.WasPressedThisFrame())
+        { PlayerAttackFunc("Heavy Attack"); }
+
         currentGrid.TrackElevation(gameObject);
         currentGrid.TrackTileMap(gameObject);
     }
@@ -249,8 +251,9 @@ public class PlayerController : MonoBehaviour
         PlayerAimFunc();
     }
 
-    private void PlayerAttackFunc() {
-        Debug.Log("attack");
+    private void PlayerAttackFunc(string attackType) {
+        Debug.Log(attackType);
+        animatorVar.SetTrigger(attackType);
     }
 
     private void PlayerMoveFunc() {
@@ -291,18 +294,20 @@ public class PlayerController : MonoBehaviour
         // StartCoroutine(ApplyGravity(1));
     }
 
-    private void CastSpell() {
+    //create an array for different spells and correspond that to the different spells
+    public Spells spellList;
+    private void CastSpell()
+    {
+        spellList.Fireball(gameObject, playerAimVector);
         Debug.Log("CAST");
-        Instantiate(fireball, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), Quaternion.identity);
     }
 
     void RotatePlayer(float x, float y)
     {
         // If there is no input, do not rotate the player
         if (x == 0 && y == 0) return;
-
         // Calculate the rotation angle based on input direction
-        float angle = Mathf.Atan2(y, x) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(-y, -x) * Mathf.Rad2Deg;
         // Apply the rotation to the player
         transform.rotation = Quaternion.Euler(0, 0, angle);
     }

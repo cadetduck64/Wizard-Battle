@@ -317,17 +317,6 @@
                 },
                 {
                     "name": "",
-                    "id": "4d03e998-4da5-458f-af9d-cd30f263212a",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Light Attack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "7a6de02a-5377-4fba-80a3-8080645b9087",
                     "path": "<XInputController>/buttonNorth",
                     "interactions": "",
@@ -339,33 +328,11 @@
                 },
                 {
                     "name": "",
-                    "id": "4ab851f2-d372-48e3-93b9-b926548d85ba",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Medium Attack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "86a2fdbe-d458-4014-b11b-29693e7e5fbe",
                     "path": "<XInputController>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Xbox Control Scheme",
-                    "action": "Heavy Attack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "e139eafd-b73f-4f79-a0d1-f35c4b9a02c7",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
                     "action": "Heavy Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
