@@ -110,15 +110,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Quick Select"",
-                    ""type"": ""Button"",
-                    ""id"": ""57544d7f-9c08-4fa5-a762-c3bbd602d0b9"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Magic Mode"",
                     ""type"": ""Button"",
                     ""id"": ""b08f72f4-20d2-4879-a641-c99854cdd6c4"",
@@ -189,53 +180,45 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Offense Spell"",
+                    ""type"": ""Button"",
+                    ""id"": ""deed9250-ef78-4e37-9aef-a1d6b9d6efac"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Defense Spell"",
+                    ""type"": ""Button"",
+                    ""id"": ""eb24ebbe-f962-4d37-a7fd-d5f5bb7d6530"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Support Spell"",
+                    ""type"": ""Button"",
+                    ""id"": ""3b44954b-a32b-4bc6-9a02-6cd1f9fcd884"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Magic Item"",
+                    ""type"": ""Button"",
+                    ""id"": ""308915fe-af45-4660-93a6-8ff3c4caa843"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""8f8e9792-fe93-40a6-8c51-e73967116d31"",
-                    ""path"": ""<XInputController>/dpad/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Xbox Control Scheme"",
-                    ""action"": ""Quick Select"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""5a54f579-a87d-48bf-9e68-99551d326afa"",
-                    ""path"": ""<XInputController>/dpad/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Xbox Control Scheme"",
-                    ""action"": ""Quick Select"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""a8a88f2a-0831-42f7-bc6e-cfd13c86c316"",
-                    ""path"": ""<XInputController>/dpad/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Xbox Control Scheme"",
-                    ""action"": ""Quick Select"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""d12e11aa-11fd-4b7b-9d18-734db7c48dd5"",
-                    ""path"": ""<XInputController>/dpad/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Xbox Control Scheme"",
-                    ""action"": ""Quick Select"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": """",
                     ""id"": ""83781943-c1b5-4c4f-a643-4e004656a3b7"",
@@ -422,6 +405,50 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Heavy Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3008ac08-cf24-43d4-b582-ad431dce988f"",
+                    ""path"": ""<XInputController>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Offense Spell"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b299149c-cf7e-420a-9763-daecac251771"",
+                    ""path"": ""<XInputController>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Defense Spell"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c6c98480-0810-4b71-9533-47415f3cbe28"",
+                    ""path"": ""<XInputController>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Support Spell"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""83ef77b9-a568-4ade-9137-4b3c2acaef24"",
+                    ""path"": ""<XInputController>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Magic Item"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -460,7 +487,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_NormalMode = asset.FindActionMap("Normal Mode", throwIfNotFound: true);
         m_NormalMode_Move = m_NormalMode.FindAction("Move", throwIfNotFound: true);
         m_NormalMode_Aim = m_NormalMode.FindAction("Aim", throwIfNotFound: true);
-        m_NormalMode_QuickSelect = m_NormalMode.FindAction("Quick Select", throwIfNotFound: true);
         m_NormalMode_MagicMode = m_NormalMode.FindAction("Magic Mode", throwIfNotFound: true);
         m_NormalMode_Jump = m_NormalMode.FindAction("Jump", throwIfNotFound: true);
         m_NormalMode_Dash = m_NormalMode.FindAction("Dash", throwIfNotFound: true);
@@ -469,6 +495,10 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_NormalMode_LightAttack = m_NormalMode.FindAction("Light Attack", throwIfNotFound: true);
         m_NormalMode_MediumAttack = m_NormalMode.FindAction("Medium Attack", throwIfNotFound: true);
         m_NormalMode_HeavyAttack = m_NormalMode.FindAction("Heavy Attack", throwIfNotFound: true);
+        m_NormalMode_OffenseSpell = m_NormalMode.FindAction("Offense Spell", throwIfNotFound: true);
+        m_NormalMode_DefenseSpell = m_NormalMode.FindAction("Defense Spell", throwIfNotFound: true);
+        m_NormalMode_SupportSpell = m_NormalMode.FindAction("Support Spell", throwIfNotFound: true);
+        m_NormalMode_MagicItem = m_NormalMode.FindAction("Magic Item", throwIfNotFound: true);
     }
 
     ~@PlayerInputActions()
@@ -551,7 +581,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private List<INormalModeActions> m_NormalModeActionsCallbackInterfaces = new List<INormalModeActions>();
     private readonly InputAction m_NormalMode_Move;
     private readonly InputAction m_NormalMode_Aim;
-    private readonly InputAction m_NormalMode_QuickSelect;
     private readonly InputAction m_NormalMode_MagicMode;
     private readonly InputAction m_NormalMode_Jump;
     private readonly InputAction m_NormalMode_Dash;
@@ -560,6 +589,10 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_NormalMode_LightAttack;
     private readonly InputAction m_NormalMode_MediumAttack;
     private readonly InputAction m_NormalMode_HeavyAttack;
+    private readonly InputAction m_NormalMode_OffenseSpell;
+    private readonly InputAction m_NormalMode_DefenseSpell;
+    private readonly InputAction m_NormalMode_SupportSpell;
+    private readonly InputAction m_NormalMode_MagicItem;
     /// <summary>
     /// Provides access to input actions defined in input action map "Normal Mode".
     /// </summary>
@@ -579,10 +612,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "NormalMode/Aim".
         /// </summary>
         public InputAction @Aim => m_Wrapper.m_NormalMode_Aim;
-        /// <summary>
-        /// Provides access to the underlying input action "NormalMode/QuickSelect".
-        /// </summary>
-        public InputAction @QuickSelect => m_Wrapper.m_NormalMode_QuickSelect;
         /// <summary>
         /// Provides access to the underlying input action "NormalMode/MagicMode".
         /// </summary>
@@ -616,6 +645,22 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @HeavyAttack => m_Wrapper.m_NormalMode_HeavyAttack;
         /// <summary>
+        /// Provides access to the underlying input action "NormalMode/OffenseSpell".
+        /// </summary>
+        public InputAction @OffenseSpell => m_Wrapper.m_NormalMode_OffenseSpell;
+        /// <summary>
+        /// Provides access to the underlying input action "NormalMode/DefenseSpell".
+        /// </summary>
+        public InputAction @DefenseSpell => m_Wrapper.m_NormalMode_DefenseSpell;
+        /// <summary>
+        /// Provides access to the underlying input action "NormalMode/SupportSpell".
+        /// </summary>
+        public InputAction @SupportSpell => m_Wrapper.m_NormalMode_SupportSpell;
+        /// <summary>
+        /// Provides access to the underlying input action "NormalMode/MagicItem".
+        /// </summary>
+        public InputAction @MagicItem => m_Wrapper.m_NormalMode_MagicItem;
+        /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
         public InputActionMap Get() { return m_Wrapper.m_NormalMode; }
@@ -647,9 +692,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Aim.started += instance.OnAim;
             @Aim.performed += instance.OnAim;
             @Aim.canceled += instance.OnAim;
-            @QuickSelect.started += instance.OnQuickSelect;
-            @QuickSelect.performed += instance.OnQuickSelect;
-            @QuickSelect.canceled += instance.OnQuickSelect;
             @MagicMode.started += instance.OnMagicMode;
             @MagicMode.performed += instance.OnMagicMode;
             @MagicMode.canceled += instance.OnMagicMode;
@@ -674,6 +716,18 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @HeavyAttack.started += instance.OnHeavyAttack;
             @HeavyAttack.performed += instance.OnHeavyAttack;
             @HeavyAttack.canceled += instance.OnHeavyAttack;
+            @OffenseSpell.started += instance.OnOffenseSpell;
+            @OffenseSpell.performed += instance.OnOffenseSpell;
+            @OffenseSpell.canceled += instance.OnOffenseSpell;
+            @DefenseSpell.started += instance.OnDefenseSpell;
+            @DefenseSpell.performed += instance.OnDefenseSpell;
+            @DefenseSpell.canceled += instance.OnDefenseSpell;
+            @SupportSpell.started += instance.OnSupportSpell;
+            @SupportSpell.performed += instance.OnSupportSpell;
+            @SupportSpell.canceled += instance.OnSupportSpell;
+            @MagicItem.started += instance.OnMagicItem;
+            @MagicItem.performed += instance.OnMagicItem;
+            @MagicItem.canceled += instance.OnMagicItem;
         }
 
         /// <summary>
@@ -691,9 +745,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Aim.started -= instance.OnAim;
             @Aim.performed -= instance.OnAim;
             @Aim.canceled -= instance.OnAim;
-            @QuickSelect.started -= instance.OnQuickSelect;
-            @QuickSelect.performed -= instance.OnQuickSelect;
-            @QuickSelect.canceled -= instance.OnQuickSelect;
             @MagicMode.started -= instance.OnMagicMode;
             @MagicMode.performed -= instance.OnMagicMode;
             @MagicMode.canceled -= instance.OnMagicMode;
@@ -718,6 +769,18 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @HeavyAttack.started -= instance.OnHeavyAttack;
             @HeavyAttack.performed -= instance.OnHeavyAttack;
             @HeavyAttack.canceled -= instance.OnHeavyAttack;
+            @OffenseSpell.started -= instance.OnOffenseSpell;
+            @OffenseSpell.performed -= instance.OnOffenseSpell;
+            @OffenseSpell.canceled -= instance.OnOffenseSpell;
+            @DefenseSpell.started -= instance.OnDefenseSpell;
+            @DefenseSpell.performed -= instance.OnDefenseSpell;
+            @DefenseSpell.canceled -= instance.OnDefenseSpell;
+            @SupportSpell.started -= instance.OnSupportSpell;
+            @SupportSpell.performed -= instance.OnSupportSpell;
+            @SupportSpell.canceled -= instance.OnSupportSpell;
+            @MagicItem.started -= instance.OnMagicItem;
+            @MagicItem.performed -= instance.OnMagicItem;
+            @MagicItem.canceled -= instance.OnMagicItem;
         }
 
         /// <summary>
@@ -799,13 +862,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnAim(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "Quick Select" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnQuickSelect(InputAction.CallbackContext context);
-        /// <summary>
         /// Method invoked when associated input action "Magic Mode" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
@@ -861,5 +917,33 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnHeavyAttack(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Offense Spell" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnOffenseSpell(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Defense Spell" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnDefenseSpell(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Support Spell" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSupportSpell(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Magic Item" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMagicItem(InputAction.CallbackContext context);
     }
 }

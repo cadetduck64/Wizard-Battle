@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7576176090202747646}
   - component: {fileID: 5453728292603626897}
   - component: {fileID: -4690976422715871582}
-  - component: {fileID: 6509293930447885905}
+  - component: {fileID: -3084318911770596361}
   - component: {fileID: 7250018305054417853}
   m_Layer: 0
   m_Name: Fireball
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.018630981, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -136,7 +136,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &6509293930447885905
+--- !u!114 &-3084318911770596361
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,8 +148,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5d5bc35891e2ef4e8c08160558ab96c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xdirection: 1
-  ydirection: 1
+  spellType: 0
+  SpellElement: 0
+  spellCaster: {fileID: 0}
+  xdirection: 0
+  ydirection: 0
+  spellLevel: 0
+  damage: 0
   validTargets:
     serializedVersion: 2
     m_Bits: 0

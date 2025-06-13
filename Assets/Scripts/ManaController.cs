@@ -19,7 +19,6 @@ public class ManaController : MonoBehaviour
 
     public IEnumerator RegenerateMana(GameObject gameObject, float delayTime)
     {
-        Debug.Log("asdf");
         manaRegenEnabled = false;
         if (gameObject.GetComponent<ManaController>().currentMana >= gameObject.GetComponent<ManaController>().maxMana)
         {

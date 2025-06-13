@@ -1,30 +1,35 @@
 using UnityEngine;
 
-public class Spell : MonoBehaviour
+public abstract class Spell : MonoBehaviour
 {
-    public enum SpellType {
+    public enum SpellTypeEnum
+    {
         Offense,
         Defense,
         Support
     }
 
-    public enum SpellElement
+    public enum SpellElementEnum
     {
         Fire,
         Water,
         Earth,
         Air,
     }
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public SpellTypeEnum spellType;
+    public SpellElementEnum SpellElement;
+    public GameObject spellCaster;
+    public int spellLevel;
+    public void SetLevel(int newLevel)
     {
-        
+        if (newLevel > 3)
+        {
+            spellLevel = 3;
+            return;
+        }
+        else
+        { spellLevel = newLevel; }
     }
+    public abstract void CastSpell(GameObject caster, Vector2 aim);
 }

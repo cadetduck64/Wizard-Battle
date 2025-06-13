@@ -26,8 +26,10 @@ public class PlayerController : MonoBehaviour
     private InputAction lightAttackAction;
     private InputAction mediumAttackAction;
     private InputAction heavyAttackAction;
+    private InputAction selectOffenseSpellAction;
+    private InputAction selectDefenseSpellAction;
+    private InputAction selectSupportSpellAction;
 
-    
     public Vector2 playerAimVector;
     public Vector2 playerMoveVector;
     public GridScript currentGrid;
@@ -53,6 +55,10 @@ public class PlayerController : MonoBehaviour
         lightAttackAction = InputSystem.actions.FindAction("Light Attack");
         mediumAttackAction = InputSystem.actions.FindAction("Medium Attack");
         heavyAttackAction = InputSystem.actions.FindAction("Heavy Attack");
+
+        selectOffenseSpellAction = InputSystem.actions.FindAction("Offense Spell");
+        selectDefenseSpellAction = InputSystem.actions.FindAction("Defense Spell");
+        selectSupportSpellAction = InputSystem.actions.FindAction("Support Spell");
 
         crosshair.GetComponent<SpriteRenderer>().enabled = false;
         playerRb = GetComponent<Rigidbody2D>();
@@ -112,7 +118,6 @@ public class PlayerController : MonoBehaviour
 
     public SpriteRenderer playerSprite;
     public GameObject conduit;
-    public ManaController manaController;
     void Update()
     {
         RotatePlayer(playerMoveVector.x, playerMoveVector.y);
@@ -142,9 +147,29 @@ public class PlayerController : MonoBehaviour
         else if (heavyAttackAction.WasPressedThisFrame())
         { PlayerAttackFunc("Heavy Attack"); }
 
+        if (selectOffenseSpellAction.WasPressedThisFrame())
+        {
+            if (!gameObject.GetComponent<SpellSlots>().offense) { return; }
+            gameObject.GetComponent<SpellSlots>().currentSpell = gameObject.GetComponent<SpellSlots>().offense;
+        }
+        else if (selectDefenseSpellAction.WasPressedThisFrame())
+        {
+            if (!gameObject.GetComponent<SpellSlots>().defense) { return; }
+            gameObject.GetComponent<SpellSlots>().currentSpell = gameObject.GetComponent<SpellSlots>().defense;
+        }
+        else if (selectSupportSpellAction.WasPressedThisFrame())
+        {
+            if (!gameObject.GetComponent<SpellSlots>().support) { return; }
+            gameObject.GetComponent<SpellSlots>().currentSpell = gameObject.GetComponent<SpellSlots>().support;
+        }
+
+        Debug.Log("Current Spell: " + gameObject.GetComponent<SpellSlots>().currentSpell);
+
         currentGrid.TrackElevation(gameObject);
         currentGrid.TrackTileMap(gameObject);
     }
+
+    
 
     // private void CheckCollision() {
     //     Vector2 playerPosition = new Vector2(playerRb.transform.position.x, playerRb.transform.position.y);
@@ -164,85 +189,85 @@ public class PlayerController : MonoBehaviour
     // }
 
     // private void CheckElevation() {
-        
+
     //     Vector2 playerPosition = new Vector2(playerRb.transform.position.x, playerRb.transform.position.y);
 
     //     List<Collider2D> triggerOverlaps = new List<Collider2D>();
-        
 
-        // gameObject.GetComponent<BoxCollider2D>().Overlap(playerPosition, 0, triggerOverlaps); //gets all of the colliders the player overlaps with
 
-        
-        // foreach (var item in triggerOverlaps)
-        // {Debug.Log(item.name + " " + item.GetComponent<TilemapMonoScript>().elevation);}
-            
-        // if (triggerOverlaps.Count >= 1)
-        // {foreach (var item in triggerOverlaps)
-        //     {
-        //         if (!item.isTrigger) {return;}
-        //         else if (item.GetComponent<TilemapMonoScript>().elevation < playerElevation - 1)
-        //             {
-        //             //fall damage
-        //             playerElevation = item.GetComponent<TilemapMonoScript>().elevation;
-        //             gameObject.GetComponent<SpriteRenderer>().sortingOrder = playerElevation + 1;
-        //             Debug.Log("Fall DAMAGED");
-        //             }
-        //         else if (item.GetComponent<TilemapMonoScript>().elevation > playerElevation + 1) //if the highest platform is 1 level higher, hide the player
-        //             {
-        //             gameObject.GetComponent<SpriteRenderer>().sortingOrder = playerElevation - 1;
-        //             }
-        //         else if (item.GetComponent<TilemapMonoScript>().elevation == playerElevation + 1)
-        //             {
-        //             playerElevation = item.GetComponent<TilemapMonoScript>().elevation;
-        //             gameObject.GetComponent<SpriteRenderer>().sortingOrder = playerElevation + 1;
-        //             Debug.Log("raised");
-        //             return;
-        //             }
-        //         else if (item.GetComponent<TilemapMonoScript>().elevation == playerElevation - 1)
-        //             {
-        //             // Physics2D.IgnoreCollision(item.GetComponentInChildren<TilemapCollisionMonoscript>().elevation);
-        //             playerElevation = item.GetComponent<TilemapMonoScript>().elevation;
-        //             gameObject.GetComponent<SpriteRenderer>().sortingOrder = playerElevation + 1;
-        //             Debug.Log("lowered");
-        //             return;
-        //             }
-        //         else {return;}
-        //     }
-        // } else {playerElevation = 0;}
+    // gameObject.GetComponent<BoxCollider2D>().Overlap(playerPosition, 0, triggerOverlaps); //gets all of the colliders the player overlaps with
 
-        // if (triggerOverlaps.Count >= 1)
-        // {foreach (var item in triggerOverlaps)
-        //     {
-        //         if (!item.isTrigger) {return;}
-        //         else if (item.transform.position.z < gameObject.transform.position.z - 1)
-        //             {
-        //             //fall damage
-        //             gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, item.transform.position.z);
-        //             gameObject.GetComponent<SpriteRenderer>().sortingOrder = (int)(gameObject.transform.position.z + 1);
-        //             Debug.Log("Fall DAMAGED");
-        //             }
-        //         else if (item.transform.position.z > gameObject.transform.position.z + 1) //if the highest platform is 1 level higher, hide the player
-        //             {
-        //             gameObject.GetComponent<SpriteRenderer>().sortingOrder = (int)gameObject.transform.position.z - 1;
-        //             }
-        //         else if (item.transform.position.z == playerElevation + 1)
-        //             {
-        //             gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, item.transform.position.z);
-        //             gameObject.GetComponent<SpriteRenderer>().sortingOrder = (int)(gameObject.transform.position.z + 1);
-        //             Debug.Log("raised");
-        //             return;
-        //             }
-        //         else if (item.transform.position.z > gameObject.transform.position.z - 1)
-        //             {
-        //             // Physics2D.IgnoreCollision(item.GetComponentInChildren<TilemapCollisionMonoscript>().elevation);
-        //             gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, item.transform.position.z);
-        //             gameObject.GetComponent<SpriteRenderer>().sortingOrder = (int)(gameObject.transform.position.z + 1);
-        //             Debug.Log("lowered");
-        //             return;
-        //             }
-        //         else {return;}
-        //     }
-        // } else {gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0);}
+
+    // foreach (var item in triggerOverlaps)
+    // {Debug.Log(item.name + " " + item.GetComponent<TilemapMonoScript>().elevation);}
+
+    // if (triggerOverlaps.Count >= 1)
+    // {foreach (var item in triggerOverlaps)
+    //     {
+    //         if (!item.isTrigger) {return;}
+    //         else if (item.GetComponent<TilemapMonoScript>().elevation < playerElevation - 1)
+    //             {
+    //             //fall damage
+    //             playerElevation = item.GetComponent<TilemapMonoScript>().elevation;
+    //             gameObject.GetComponent<SpriteRenderer>().sortingOrder = playerElevation + 1;
+    //             Debug.Log("Fall DAMAGED");
+    //             }
+    //         else if (item.GetComponent<TilemapMonoScript>().elevation > playerElevation + 1) //if the highest platform is 1 level higher, hide the player
+    //             {
+    //             gameObject.GetComponent<SpriteRenderer>().sortingOrder = playerElevation - 1;
+    //             }
+    //         else if (item.GetComponent<TilemapMonoScript>().elevation == playerElevation + 1)
+    //             {
+    //             playerElevation = item.GetComponent<TilemapMonoScript>().elevation;
+    //             gameObject.GetComponent<SpriteRenderer>().sortingOrder = playerElevation + 1;
+    //             Debug.Log("raised");
+    //             return;
+    //             }
+    //         else if (item.GetComponent<TilemapMonoScript>().elevation == playerElevation - 1)
+    //             {
+    //             // Physics2D.IgnoreCollision(item.GetComponentInChildren<TilemapCollisionMonoscript>().elevation);
+    //             playerElevation = item.GetComponent<TilemapMonoScript>().elevation;
+    //             gameObject.GetComponent<SpriteRenderer>().sortingOrder = playerElevation + 1;
+    //             Debug.Log("lowered");
+    //             return;
+    //             }
+    //         else {return;}
+    //     }
+    // } else {playerElevation = 0;}
+
+    // if (triggerOverlaps.Count >= 1)
+    // {foreach (var item in triggerOverlaps)
+    //     {
+    //         if (!item.isTrigger) {return;}
+    //         else if (item.transform.position.z < gameObject.transform.position.z - 1)
+    //             {
+    //             //fall damage
+    //             gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, item.transform.position.z);
+    //             gameObject.GetComponent<SpriteRenderer>().sortingOrder = (int)(gameObject.transform.position.z + 1);
+    //             Debug.Log("Fall DAMAGED");
+    //             }
+    //         else if (item.transform.position.z > gameObject.transform.position.z + 1) //if the highest platform is 1 level higher, hide the player
+    //             {
+    //             gameObject.GetComponent<SpriteRenderer>().sortingOrder = (int)gameObject.transform.position.z - 1;
+    //             }
+    //         else if (item.transform.position.z == playerElevation + 1)
+    //             {
+    //             gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, item.transform.position.z);
+    //             gameObject.GetComponent<SpriteRenderer>().sortingOrder = (int)(gameObject.transform.position.z + 1);
+    //             Debug.Log("raised");
+    //             return;
+    //             }
+    //         else if (item.transform.position.z > gameObject.transform.position.z - 1)
+    //             {
+    //             // Physics2D.IgnoreCollision(item.GetComponentInChildren<TilemapCollisionMonoscript>().elevation);
+    //             gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, item.transform.position.z);
+    //             gameObject.GetComponent<SpriteRenderer>().sortingOrder = (int)(gameObject.transform.position.z + 1);
+    //             Debug.Log("lowered");
+    //             return;
+    //             }
+    //         else {return;}
+    //     }
+    // } else {gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0);}
     // }
 
     void FixedUpdate()
@@ -283,11 +308,13 @@ public class PlayerController : MonoBehaviour
         // playerRb.AddForce(new Vector3(10, 10, 0), ForceMode2D.Impulse);
     }
 
-    IEnumerator ApplyGravity(float waitTime) {
-        yield return new WaitForSeconds(waitTime);
-        gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y,gameObject.transform.position.z - 1);
-    }
-    private void PlayerJumpFunc() {
+    // IEnumerator ApplyGravity(float waitTime) {
+    //     yield return new WaitForSeconds(waitTime);
+    //     gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y,gameObject.transform.position.z - 1);
+    // }
+    
+    private void PlayerJumpFunc()
+    {
         Debug.Log("Jumped");
         // playerRb.MovePosition(new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 10));
         gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z + 1);
@@ -295,10 +322,12 @@ public class PlayerController : MonoBehaviour
     }
 
     //create an array for different spells and correspond that to the different spells
-    public Spells spellList;
+    
     private void CastSpell()
     {
-        spellList.Fireball(gameObject, playerAimVector);
+        // spellList.Fireball(gameObject, playerAimVector);
+        //refactor spells so you can give just the gameobject as an argument
+        gameObject.GetComponent<SpellSlots>().currentSpell.GetComponent<Spell>().CastSpell(gameObject, playerAimVector);
         Debug.Log("CAST");
     }
 

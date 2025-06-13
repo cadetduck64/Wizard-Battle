@@ -24,15 +24,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Quick Select",
-                    "type": "Button",
-                    "id": "57544d7f-9c08-4fa5-a762-c3bbd602d0b9",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Magic Mode",
                     "type": "Button",
                     "id": "b08f72f4-20d2-4879-a641-c99854cdd6c4",
@@ -103,53 +94,45 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Offense Spell",
+                    "type": "Button",
+                    "id": "deed9250-ef78-4e37-9aef-a1d6b9d6efac",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Defense Spell",
+                    "type": "Button",
+                    "id": "eb24ebbe-f962-4d37-a7fd-d5f5bb7d6530",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Support Spell",
+                    "type": "Button",
+                    "id": "3b44954b-a32b-4bc6-9a02-6cd1f9fcd884",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Magic Item",
+                    "type": "Button",
+                    "id": "308915fe-af45-4660-93a6-8ff3c4caa843",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "8f8e9792-fe93-40a6-8c51-e73967116d31",
-                    "path": "<XInputController>/dpad/up",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Xbox Control Scheme",
-                    "action": "Quick Select",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "5a54f579-a87d-48bf-9e68-99551d326afa",
-                    "path": "<XInputController>/dpad/down",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Xbox Control Scheme",
-                    "action": "Quick Select",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a8a88f2a-0831-42f7-bc6e-cfd13c86c316",
-                    "path": "<XInputController>/dpad/left",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Xbox Control Scheme",
-                    "action": "Quick Select",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "d12e11aa-11fd-4b7b-9d18-734db7c48dd5",
-                    "path": "<XInputController>/dpad/right",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Xbox Control Scheme",
-                    "action": "Quick Select",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "83781943-c1b5-4c4f-a643-4e004656a3b7",
@@ -334,6 +317,50 @@
                     "processors": "",
                     "groups": ";Xbox Control Scheme",
                     "action": "Heavy Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3008ac08-cf24-43d4-b582-ad431dce988f",
+                    "path": "<XInputController>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Offense Spell",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b299149c-cf7e-420a-9763-daecac251771",
+                    "path": "<XInputController>/dpad/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Defense Spell",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c6c98480-0810-4b71-9533-47415f3cbe28",
+                    "path": "<XInputController>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Support Spell",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "83ef77b9-a568-4ade-9137-4b3c2acaef24",
+                    "path": "<XInputController>/dpad/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Magic Item",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
