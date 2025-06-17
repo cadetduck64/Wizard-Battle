@@ -64,7 +64,8 @@ public class PlayerController : MonoBehaviour
         playerRb = GetComponent<Rigidbody2D>();
     }
 
-    public void EnableTheFuckingControls() {
+    public void EnableTheFuckingControls()
+    {
         Awake();
     }
 
@@ -82,7 +83,7 @@ public class PlayerController : MonoBehaviour
     //     Debug.Log(context.ReadValue<Vector2>());
     //     // gameObject.transform.position = new Vector2(gameObject.transform.position.x + context.ReadValue<Vector2>().x * 0.25f, gameObject.transform.position.y + context.ReadValue<Vector2>().y * 0.25f );
     //     playerRb.MovePosition(new Vector2(gameObject.transform.position.x + context.ReadValue<Vector2>().x , gameObject.transform.position.y + context.ReadValue<Vector2>().y));
-        
+
     // }
 
     // public void OnJump(InputAction.CallbackContext context)
@@ -98,8 +99,9 @@ public class PlayerController : MonoBehaviour
     //     playerRb.constraints = RigidbodyConstraints2D.FreezeRotation;
     // }
 
-    void mouseAim() {
-                // Debug.Log(playerDevice.currentControlScheme);
+    void mouseAim()
+    {
+        // Debug.Log(playerDevice.currentControlScheme);
         // // Debug.Log(Camera.main.ScreenToWorldPoint(Input.mousePosition));
 
         // //gets the raw data for where the mouse cursor is
@@ -163,13 +165,11 @@ public class PlayerController : MonoBehaviour
             gameObject.GetComponent<SpellSlots>().currentSpell = gameObject.GetComponent<SpellSlots>().support;
         }
 
-        Debug.Log("Current Spell: " + gameObject.GetComponent<SpellSlots>().currentSpell);
-
         currentGrid.TrackElevation(gameObject);
         currentGrid.TrackTileMap(gameObject);
     }
 
-    
+
 
     // private void CheckCollision() {
     //     Vector2 playerPosition = new Vector2(playerRb.transform.position.x, playerRb.transform.position.y);
@@ -276,18 +276,21 @@ public class PlayerController : MonoBehaviour
         PlayerAimFunc();
     }
 
-    private void PlayerAttackFunc(string attackType) {
+    private void PlayerAttackFunc(string attackType)
+    {
         Debug.Log(attackType);
         animatorVar.SetTrigger(attackType);
     }
 
-    private void PlayerMoveFunc() {
+    private void PlayerMoveFunc()
+    {
         // Debug.Log(playerMoveVector);
         // playerRb.MovePosition(new Vector2(gameObject.transform.position.x + playerMoveVector.x * speed, gameObject.transform.position.y + playerMoveVector.y * speed));
         playerRb.AddForce(new Vector2(playerMoveVector.x * speed, playerMoveVector.y * speed));
     }
 
-    private void PlayerAimFunc() {
+    private void PlayerAimFunc()
+    {
         // Debug.Log(playerAimVector);
         crosshair.GetComponent<SpriteRenderer>().enabled = true;
 
@@ -297,12 +300,13 @@ public class PlayerController : MonoBehaviour
             Mathf.Clamp(PlayerCamera.transform.position.y + playerAimVector.y, PlayerCamera.transform.position.y - 0.05f, PlayerCamera.transform.position.y + 0.05f),
             -2);
 
-        crosshair.transform.position = new Vector2 (
+        crosshair.transform.position = new Vector2(
             Mathf.Clamp(gameObject.transform.position.x + playerAimVector.x * aimRange, gameObject.transform.position.x - aimRange, gameObject.transform.position.x + aimRange),
             Mathf.Clamp(gameObject.transform.position.y + playerAimVector.y * aimRange, gameObject.transform.position.y - aimRange, gameObject.transform.position.y + aimRange));
     }
 
-    private void PlayerDashFunc() {
+    private void PlayerDashFunc()
+    {
         Debug.Log("DASHED");
         playerRb.MovePosition(new Vector2(gameObject.transform.position.x + playerMoveVector.x * dashRange, gameObject.transform.position.y + playerMoveVector.y * dashRange));
         // playerRb.AddForce(new Vector3(10, 10, 0), ForceMode2D.Impulse);
@@ -312,7 +316,7 @@ public class PlayerController : MonoBehaviour
     //     yield return new WaitForSeconds(waitTime);
     //     gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y,gameObject.transform.position.z - 1);
     // }
-    
+
     private void PlayerJumpFunc()
     {
         Debug.Log("Jumped");
@@ -322,7 +326,7 @@ public class PlayerController : MonoBehaviour
     }
 
     //create an array for different spells and correspond that to the different spells
-    
+
     private void CastSpell()
     {
         // spellList.Fireball(gameObject, playerAimVector);
@@ -340,4 +344,38 @@ public class PlayerController : MonoBehaviour
         // Apply the rotation to the player
         transform.rotation = Quaternion.Euler(0, 0, angle);
     }
+    
+    
+//     // You can also provide a device ID to only
+//     // trace events for a specific device.
+//     var trace = new InputEventTrace();
+
+//     trace.Enable();
+
+//     var current = new InputEventPtr();
+//     while (trace.GetNextEvent(ref current))
+//     {
+//         Debug.Log("Got some event: " + current);
+//     }
+
+//     // Also supports IEnumerable.
+//     foreach (var eventPtr in trace)
+//         Debug.Log("Got some event: " + eventPtr);
+
+//     // Trace consumes unmanaged resources. Make sure you dispose it correctly to avoid memory leaks.
+//     trace.Dispose();
+
+// To see events as they're processed, use this code:
+
+
+//     InputSystem.onEvent +=
+//         (eventPtr, device) =>
+//         {
+//             // Can handle events yourself, for example, and then stop them
+//             // from further processing by marking them as handled.
+//             eventPtr.handled = true;
+//         };
+
+
+
 }

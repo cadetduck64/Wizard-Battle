@@ -52,6 +52,6 @@ public class ManaController : MonoBehaviour
         if (gameObject.GetComponent<ManaController>().currentMana < gameObject.GetComponent<ManaController>().maxMana && manaRegenEnabled)
         {
             StartCoroutine(RegenerateMana(gameObject, regenDelay));}
-        playerUi.text = currentMana.ToString();
+        playerUi.text = "Mana: " + currentMana.ToString();
     }
 }

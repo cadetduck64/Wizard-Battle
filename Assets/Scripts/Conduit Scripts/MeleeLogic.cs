@@ -5,6 +5,20 @@ using UnityEngine;
 public class MeleeLogic : MonoBehaviour
 {
     public ConduitStats stats;
+
+    public enum AttackElementEnum
+    {
+        Fire,
+        Water,
+        Earth,
+        Air
+    }
+
+    public void CalculateMeleeDamage()
+    {
+            
+    }
+
     private float damage;
 
     void Start()
